@@ -12,7 +12,7 @@ export class AppService {
   create(product: Product): Product {
     const newProduct = {
       id: this.products.length + 1,
-      ...product
+      ...product,
     };
 
     this.products.push(newProduct);
