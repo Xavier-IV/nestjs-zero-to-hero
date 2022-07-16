@@ -16,14 +16,16 @@ export class AppService {
 
   create(product: Product): Product {
     const pattern = { event: 'product.created' };
-
+    const payload = {
+      brand: product.brand,
+    }
     const newProduct = {
       id: this.products.length + 1,
       ...product,
     };
 
     this.products.push(newProduct);
-    this.client.emit(pattern, 'New product created');
+    this.client.emit(pattern, payload);
 
     return newProduct;
   }

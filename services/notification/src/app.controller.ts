@@ -7,8 +7,13 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @MessagePattern({ event: 'product.created' })
-  getHello(data: string): void {
-    this.appService.sendEmail();
-    this.appService.sendPush();
+  getHello(data: any): void {
+    const payload = {
+      topic: 'product.created',
+      brand: data.brand
+    };
+
+    this.appService.sendEmail(payload);
+    this.appService.sendPush(payload);
   }
 }
