@@ -5,7 +5,9 @@
   "scripts": {
     "format": "prettier --write \"services/**/*.ts\" \"services/**/test/**/*.ts\"",
     "lint": "eslint \"services/**/{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "service:product": "cd services/product && npm run start:dev",
+    "service:notification": "cd services/notification && npm run start:dev"
   },
   "repository": {
     "type": "git",
